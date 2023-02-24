@@ -68,8 +68,14 @@ h6 {
   isolation: isolate;
 }
 
-$background-color-dark: #141515;
+/* COLORS */
+
+:root {
+  --background-color-dark: #141515;
+  --color-dark: #fff;
+}
 
 body {
-  background-color: $background-color-dark;
+  background-color: var(--background-color-dark);
+  color: #fff;
 }
