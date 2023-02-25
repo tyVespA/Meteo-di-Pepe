@@ -1,11 +1,14 @@
+import { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
-import FetchTest from "@/components/fetchTest";
+import WeatherData from "@/components/weatherData";
 import CityNameInput from "@/components/cityNameInput";
 
 export default function Home() {
+  const [cityName, setCityName] = useState("");
+
   return (
     <>
       <Head>
@@ -15,8 +18,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <main>
-        <CityNameInput></CityNameInput>
-        <FetchTest cityName="" />
+        <CityNameInput cityName={cityName} setCityName={setCityName} />
+        <WeatherData cityName={""} />
       </main>
     </>
   );

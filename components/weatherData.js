@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function FetchTest({ cityName }) {
+export default function WeatherData({ cityName }) {
   const [weatherData, setWeatherData] = useState(null);
 
   let apiCityName = cityName ? cityName : "Milan";
@@ -10,7 +10,7 @@ export default function FetchTest({ cityName }) {
   async function fetchData() {
     const response = await fetch(API_URL);
     const data = await response.json();
-    const name = data.name;
+    const { name } = data;
     const { humidity } = data.main;
     const { speed } = data.wind;
     setWeatherData({ name, humidity, speed });
