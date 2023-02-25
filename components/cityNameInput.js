@@ -8,7 +8,8 @@ export default function CityNameInput({ onCityNameChange }) {
     event.preventDefault();
     try {
       const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&APPID=9f83fc78fec54524b03472e33f9fdaf8`
+        // `https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&APPID=9f83fc78fec54524b03472e33f9fdaf8`
+        `https://api.openweathermap.org/data/2.5/forecast?q=${inputValue}&appid=9f83fc78fec54524b03472e33f9fdaf8`
       );
       const data = await response.json();
       if (data.cod === "404") {
