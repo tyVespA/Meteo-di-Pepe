@@ -29,11 +29,14 @@ export default function CityNameInput({ onCityNameChange }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        City name:
-        <input type="text" value={inputValue} onChange={handleChange} />
-      </label>
+    <form onSubmit={handleSubmit} style={{ textAlign: "center" }}>
+      <label htmlFor="cityNameInput">City name: </label>
+      <input
+        id="cityNameInput"
+        type="text"
+        value={inputValue}
+        onChange={handleChange}
+      />
       <button type="submit">Get weather data</button>
       {errorMessage && <p>{errorMessage}</p>}
     </form>
