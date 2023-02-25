@@ -7,7 +7,11 @@ import WeatherData from "@/components/weatherData";
 import CityNameInput from "@/components/cityNameInput";
 
 export default function Home() {
-  const [cityName, setCityName] = useState("");
+  const [cityName, setCityName] = useState("Milan");
+
+  function handleCityNameChange(newCityName) {
+    setCityName(newCityName);
+  }
 
   return (
     <>
@@ -18,8 +22,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <main>
-        <CityNameInput cityName={cityName} setCityName={setCityName} />
-        <WeatherData cityName={""} />
+        <CityNameInput onCityNameChange={handleCityNameChange} />
+        <WeatherData cityName={cityName} />
       </main>
     </>
   );
