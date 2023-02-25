@@ -1,5 +1,7 @@
 .todayWeather {
+  padding: 50px;
   text-align: center;
+  min-height: 90vh;
 }
 
 .location {

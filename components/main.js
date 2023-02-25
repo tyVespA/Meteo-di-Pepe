@@ -29,6 +29,7 @@ export default function Main({ cityName }) {
     const time = data.list[0].dt;
     const tempNow = data.list[0].main.temp;
     const weatherDescription = data.list[0].weather[0].description;
+
     // const { speed } = data.wind;
     setWeatherData({ name, tempNow, time, weatherDescription });
   }
@@ -44,13 +45,15 @@ export default function Main({ cityName }) {
   const location = weatherData.name;
   const tempNow = Math.round(weatherData.tempNow);
   const weatherDescription = weatherData.weatherDescription;
+  const weatherDescriptionCapitalized =
+    weatherDescription.charAt(0).toUpperCase() + weatherDescription.slice(1);
 
   return (
     <div>
       <TodayWeather
         cityName={location}
         temp={tempNow}
-        weatherDescription={weatherDescription}
+        weatherDescription={weatherDescriptionCapitalized}
       />
       <p>City: {weatherData.name}</p>
       <p>Time: {currentTime()}</p>
