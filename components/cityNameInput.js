@@ -1,4 +1,6 @@
 import { useState } from "react";
+import s from "../styles/cityNameInput.module.css";
+import SearchIcon from "@mui/icons-material/Search";
 
 export default function CityNameInput({ onCityNameChange }) {
   const [inputValue, setInputValue] = useState("");
@@ -8,7 +10,6 @@ export default function CityNameInput({ onCityNameChange }) {
     event.preventDefault();
     try {
       const response = await fetch(
-        // `https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&APPID=9f83fc78fec54524b03472e33f9fdaf8`
         `https://api.openweathermap.org/data/2.5/forecast?q=${inputValue}&appid=9f83fc78fec54524b03472e33f9fdaf8`
       );
       const data = await response.json();
@@ -29,16 +30,23 @@ export default function CityNameInput({ onCityNameChange }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} style={{ textAlign: "center" }}>
-      <label htmlFor="cityNameInput">City name: </label>
+    <form
+      onSubmit={handleSubmit}
+      className={s.form}
+      style={{ textAlign: "center" }}
+    >
       <input
         id="cityNameInput"
         type="text"
         value={inputValue}
         onChange={handleChange}
+        className={s.inputField}
+        placeholder="Milano"
       />
-      <button type="submit">Get weather data</button>
-      {errorMessage && <p>{errorMessage}</p>}
+      <button type="submit" className={s.submitButton}>
+        <SearchIcon className={s.searchIcon} />
+      </button>
+      {errorMessage && <p className={s.errorMessage}>{errorMessage}</p>}
     </form>
   );
 }

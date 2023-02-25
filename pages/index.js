@@ -7,12 +7,6 @@ import Main from "@/components/main";
 import CityNameInput from "@/components/cityNameInput";
 
 export default function Home() {
-  const [cityName, setCityName] = useState("Milan");
-
-  function handleCityNameChange(newCityName) {
-    setCityName(newCityName);
-  }
-
   return (
     <>
       <Head>
@@ -22,8 +16,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <main>
-        <CityNameInput onCityNameChange={handleCityNameChange} />
-        <Main cityName={cityName} />
+        <Main />
       </main>
     </>
   );

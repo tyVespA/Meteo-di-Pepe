@@ -1,0 +1,43 @@
+.form {
+  display: flex;
+  align-items: baseline;
+}
+
+.inputField {
+  border: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.527);
+  margin-right: 5px;
+  text-align: center;
+  background-color: transparent;
+  width: 75px;
+  color: white;
+}
+
+.inputField::placeholder {
+  color: rgba(255, 255, 255, 0.76);
+  text-align: center;
+}
+
+.submitButton {
+  cursor: pointer;
+  background: transparent;
+  border: transparent;
+  color: white;
+  display: flex;
+  align-self: center;
+  /* border: 1px solid black; */
+  /* height: 20px; */
+  /* width: 20px; */
+}
+
+.searchIcon {
+  /* border: 1px solid black; */
+}
+
+.errorMessage {
+  position: absolute;
+  left: 25px;
+  right: 25px;
+  top: 45px;
+  font-size: 0.8rem;
+}

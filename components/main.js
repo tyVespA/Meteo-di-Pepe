@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
+import Header from "./header";
+import CityNameInput from "@/components/cityNameInput";
 import TodayWeather from "./todayWeather";
+import s from "../styles/main.module.css";
 
-export default function Main({ cityName }) {
+export default function Main() {
   //converts unix time to GMT
   function unixToGMT(unixTime) {
     const gmtTime = new Date(unixTime * 1000);
@@ -16,10 +19,14 @@ export default function Main({ cityName }) {
   }
 
   const [weatherData, setWeatherData] = useState(null);
+  const [cityName, setCityName] = useState("Milan");
+
+  function handleCityNameChange(newCityName) {
+    setCityName(newCityName);
+  }
 
   let apiCityName = cityName ? cityName : "Milan";
 
-  // let API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${apiCityName}&APPID=9f83fc78fec54524b03472e33f9fdaf8`;
   let API_URL = `https://api.openweathermap.org/data/2.5/forecast?q=${apiCityName}&appid=9f83fc78fec54524b03472e33f9fdaf8&units=metric&lang=it`;
 
   async function fetchData() {
@@ -42,6 +49,8 @@ export default function Main({ cityName }) {
     return <div>Loading...</div>;
   }
 
+  const sunnyBackground = "linear-gradient(to top, #60efff, #0061ff)";
+
   const location = weatherData.name;
   const tempNow = Math.round(weatherData.tempNow);
   const weatherDescription = weatherData.weatherDescription;
@@ -49,7 +58,19 @@ export default function Main({ cityName }) {
     weatherDescription.charAt(0).toUpperCase() + weatherDescription.slice(1);
 
   return (
-    <div>
+    <div
+      className={s.main}
+      style={{
+        backgroundImage: sunnyBackground,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "top center",
+      }}
+    >
+      <Header>
+        <CityNameInput onCityNameChange={handleCityNameChange} />
+      </Header>
+
       <TodayWeather
         cityName={location}
         temp={tempNow}
