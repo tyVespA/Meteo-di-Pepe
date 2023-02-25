@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function WeatherData({ cityName }) {
+export default function Main({ cityName }) {
   const [weatherData, setWeatherData] = useState(null);
 
   let apiCityName = cityName ? cityName : "Milan";

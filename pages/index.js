@@ -3,7 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
-import WeatherData from "@/components/weatherData";
+import Main from "@/components/main";
 import CityNameInput from "@/components/cityNameInput";
 
 export default function Home() {
@@ -23,7 +23,7 @@ export default function Home() {
       </Head>
       <main>
         <CityNameInput onCityNameChange={handleCityNameChange} />
-        <WeatherData cityName={cityName} />
+        <Main cityName={cityName} />
       </main>
     </>
   );
