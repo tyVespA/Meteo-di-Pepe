@@ -1,3 +1,27 @@
+@font-face {
+  font-family: "SF Pro Text";
+  src: url(../assets/sf-pro-text/sf-pro-text-light.woff);
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "SF Pro Text";
+  src: url("../assets/sf-pro-text/sf-pro-text-regular.woff");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "SF Pro Text";
+  src: url(../assets/sf-pro-text/sf-pro-text-medium.woff);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "SF Pro Text";
+  src: url(../assets/sf-pro-text/sf-pro-text-bold.woff);
+  font-weight: 500;
+}
+
 /*
   1. Use a more-intuitive box-sizing model.
 */

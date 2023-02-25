@@ -11,6 +11,8 @@
   background-color: transparent;
   width: 75px;
   color: white;
+  font-weight: 200;
+  font-size: 0.9rem;
 }
 
 .inputField::placeholder {
