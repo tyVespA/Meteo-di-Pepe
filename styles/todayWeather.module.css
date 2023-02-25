@@ -1,3 +1,23 @@
 .todayWeather {
   text-align: center;
 }
+
+.location {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+}
+
+.temp {
+  display: inline-block;
+  font-size: 3rem;
+  position: relative;
+}
+
+.temp::after {
+  position: absolute;
+  content: "°";
+  font-size: 1.5rem;
+  top: 5px;
+  right: -10px;
+}
