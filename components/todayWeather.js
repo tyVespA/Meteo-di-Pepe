@@ -21,10 +21,10 @@ export default function TodayWeather({
         <p className={s.temp}>{temp}°</p>
       </div>
       <Image
-        src={`/images/${image}.svg`}
+        src={`/images/${image}.png`}
         // src={sunAndCloudsImg}
-        width={93.19 * 3}
-        height={78.71 * 3}
+        width={250}
+        height={250}
         alt="weather image"
         style={{ marginInline: "auto", marginBlock: "5px" }}
       />

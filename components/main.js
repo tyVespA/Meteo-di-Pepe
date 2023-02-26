@@ -111,7 +111,7 @@ export default function Main() {
   }
 
   const location = weatherData.name;
-  const tempNow = Math.round(weatherData.tempNow);
+  const tempNow = Math.round(weatherData.tempNow * 10) / 10;
   const weatherDescription = weatherData.weatherDescription;
   const weatherDescriptionCapitalized =
     weatherDescription.charAt(0).toUpperCase() + weatherDescription.slice(1);
