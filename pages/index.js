@@ -13,7 +13,7 @@ export default function Home() {
         <title>Il meteo di Pepe</title>
         <meta name="description" content="Che tempo fa?" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/images/feelsRain.gif" />
+        <link rel="icon" href="/DaySun.svg" />
       </Head>
       <main>
         <Main />
