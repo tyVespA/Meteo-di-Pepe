@@ -30,7 +30,7 @@ export default function Main() {
   const [weatherData, setWeatherData] = useState(null);
   const [cityName, setCityName] = useState("Milan");
   const [backGroundColor, setBackGroundColor] = useState("");
-  const [icon, setIcon] = useState("");
+  const [image, setImage] = useState("");
 
   function handleCityNameChange(newCityName) {
     setCityName(newCityName);
@@ -49,9 +49,9 @@ export default function Main() {
     const weatherDescription = data.list[0].weather[0].description;
     console.log(weatherDescription);
 
-    if (weatherDescription === "poche nuvole") {
-      setIcon("sunAndClouds");
-    }
+    // if (weatherDescription === "poche nuvole") {
+    //   setImage("sunAndClouds");
+    // }
 
     // const { speed } = data.wind;
     setWeatherData({ name, tempNow, time, weatherDescription });
@@ -92,17 +92,10 @@ export default function Main() {
       <Header>
         <CityNameInput onCityNameChange={handleCityNameChange} />
       </Header>
-      <Image
-        src={`/images/${icon}.png`}
-        // src={sunAndCloudsImg}
-        width={93.19 * 3}
-        height={78.71 * 3}
-        alt="weather image"
-        style={{ marginInline: "auto", marginBottom: "25px" }}
-      />
       <TodayWeather
         cityName={location}
         temp={tempNow}
+        image={"sunAndClouds"}
         weatherDescription={weatherDescriptionCapitalized}
         currentHourMinute={currentHourMinute}
       />
