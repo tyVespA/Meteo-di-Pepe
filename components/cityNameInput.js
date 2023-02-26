@@ -8,7 +8,8 @@ export default function CityNameInput({ onCityNameChange }) {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    e.target.elements.myInput.blur();
+    event.target.elements.cityNameInput.blur();
+    setInputValue("");
     try {
       const response = await fetch(
         `https://api.openweathermap.org/data/2.5/forecast?q=${inputValue}&appid=9f83fc78fec54524b03472e33f9fdaf8`
@@ -42,7 +43,7 @@ export default function CityNameInput({ onCityNameChange }) {
         value={inputValue}
         onChange={handleChange}
         className={s.inputField}
-        placeholder="Milano"
+        placeholder="Cerca.."
       />
       <button type="submit" className={s.submitButton}>
         <SearchIcon className={s.searchIcon} />
