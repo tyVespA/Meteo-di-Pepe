@@ -59,6 +59,7 @@ export default function Main() {
         dayTime ? setImage("DaySun") : setImage("NightMoon");
         break;
       case "pioggia moderata":
+      case "pioggia leggera":
         dayTime ? setImage("DayRain") : setImage("NightRain");
         break;
       default:
