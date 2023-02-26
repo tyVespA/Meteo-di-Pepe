@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
+  padding-bottom: 35px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.377);
 }
 
 .location {
@@ -22,5 +24,5 @@
 
 .weatherDescription {
   padding-top: 2px;
-  color: rgba(255, 255, 255, 0.863);
+  color: rgb(255, 255, 255);
 }

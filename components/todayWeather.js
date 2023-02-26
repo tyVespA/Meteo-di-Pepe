@@ -16,12 +16,12 @@ export default function TodayWeather({
         <p className={s.temp}>{temp}°</p>
       </div>
       <Image
-        src={`/images/${image}.png`}
+        src={`/images/${image}.svg`}
         // src={sunAndCloudsImg}
         width={93.19 * 3}
         height={78.71 * 3}
         alt="weather image"
-        style={{ marginInline: "auto", marginBottom: "25px" }}
+        style={{ marginInline: "auto", marginBlock: "5px" }}
       />
       <p className={s.weatherDescription}>{weatherDescription}</p>
       <p className={s.weatherDescription}>Ore: {currentHourMinute}</p>

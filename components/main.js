@@ -5,7 +5,6 @@ import CityNameInput from "@/components/cityNameInput";
 import TodayWeather from "./todayWeather";
 import s from "../styles/main.module.css";
 
-import sunAndCloudsImg from "../public/images/sunAndClouds.png";
 import { textAlign } from "@mui/system";
 
 // TODO: CHANGE VARIABLES TO USE useState()
@@ -49,12 +48,22 @@ export default function Main() {
     const weatherDescription = data.list[0].weather[0].description;
     console.log(weatherDescription);
 
-    // if (weatherDescription === "poche nuvole") {
-    //   setImage("sunAndClouds");
-    // }
-
     // const { speed } = data.wind;
     setWeatherData({ name, tempNow, time, weatherDescription });
+
+    const currentHour = new Date(time * 1000).getHours();
+    const dayTime = currentHour > 5 && currentHour < 19 ? true : false;
+
+    switch (weatherDescription) {
+      case "cielo sereno":
+        dayTime ? setImage("DaySun") : setImage("NightMoon");
+        break;
+      case "pioggia moderata":
+        dayTime ? setImage("DayRain") : setImage("NightRain");
+        break;
+      default:
+        setImage("DaySun");
+    }
   }
 
   const currentHour = new Date().getHours();
@@ -64,10 +73,10 @@ export default function Main() {
   useEffect(() => {
     fetchData();
     // sets background based on hour of day
-    if (currentHour > 19) {
-      setBackGroundColor(nightBackground);
-    } else {
+    if (currentHour > 5 && currentHour < 19) {
       setBackGroundColor(sunnyBackground);
+    } else {
+      setBackGroundColor(nightBackground);
     }
   }, [cityName]);
 
@@ -95,7 +104,7 @@ export default function Main() {
       <TodayWeather
         cityName={location}
         temp={tempNow}
-        image={"sunAndClouds"}
+        image={image}
         weatherDescription={weatherDescriptionCapitalized}
         currentHourMinute={currentHourMinute}
       />
