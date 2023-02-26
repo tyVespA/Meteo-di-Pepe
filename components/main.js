@@ -7,9 +7,6 @@ import s from "../styles/main.module.css";
 
 import { textAlign } from "@mui/system";
 
-// TODO: CHANGE VARIABLES TO USE useState()
-// TODO: VARIABLE IMAGE DEPENDING ON WEATHER
-
 export default function Main() {
   //converts unix time to GMT
   function getCurrentHour(unixTime) {
@@ -39,6 +36,8 @@ export default function Main() {
 
   let API_URL = `https://api.openweathermap.org/data/2.5/forecast?q=${apiCityName}&appid=9f83fc78fec54524b03472e33f9fdaf8&units=metric&lang=it`;
 
+  // TODO: ADD MORE VARIABLES
+
   async function fetchData() {
     const response = await fetch(API_URL);
     const data = await response.json();
@@ -47,9 +46,20 @@ export default function Main() {
     const tempNow = data.list[0].main.temp;
     const weatherDescription = data.list[0].weather[0].description;
     console.log(weatherDescription);
+    const humidity = data.list[0].main.humidity;
+    const pressure = data.list[0].main.pressure;
+    const windSpeed = data.list[0].wind.speed;
 
     // const { speed } = data.wind;
-    setWeatherData({ name, tempNow, time, weatherDescription });
+    setWeatherData({
+      name,
+      tempNow,
+      time,
+      weatherDescription,
+      humidity,
+      pressure,
+      windSpeed,
+    });
 
     const currentHour = new Date(time * 1000).getHours();
     const dayTime = currentHour > 5 && currentHour < 19 ? true : false;
@@ -58,9 +68,22 @@ export default function Main() {
       case "cielo sereno":
         dayTime ? setImage("DaySun") : setImage("NightMoon");
         break;
+      case "nubi sparse":
+      case "poche nuvole":
+      case "cielo coperto":
+      case "nebbia":
+        dayTime ? setImage("DayClouds") : setImage("NightClouds");
+        break;
+      case "pioggia":
       case "pioggia moderata":
       case "pioggia leggera":
         dayTime ? setImage("DayRain") : setImage("NightRain");
+        break;
+      case "neve":
+        dayTime ? setImage("DaySnow") : setImage("NightSnow");
+        break;
+      case "tempesta":
+        dayTime ? setImage("DayStorm") : setImage("NightStorm");
         break;
       default:
         setImage("DaySun");
@@ -91,6 +114,9 @@ export default function Main() {
   const weatherDescriptionCapitalized =
     weatherDescription.charAt(0).toUpperCase() + weatherDescription.slice(1);
   const currentHourMinute = currentTime();
+  const humidity = weatherData.humidity;
+  const pressure = weatherData.pressure;
+  const windSpeed = weatherData.windSpeed;
 
   return (
     <div
@@ -107,7 +133,9 @@ export default function Main() {
         temp={tempNow}
         image={image}
         weatherDescription={weatherDescriptionCapitalized}
-        currentHourMinute={currentHourMinute}
+        humidity={humidity}
+        pressure={pressure}
+        windSpeed={windSpeed}
       />
 
       {/* <p>City: {weatherData.name}</p> */}
