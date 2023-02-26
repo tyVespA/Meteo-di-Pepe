@@ -61,8 +61,10 @@ export default function Main() {
       windSpeed,
     });
 
-    const currentHour = new Date(time * 1000).getHours();
+    const currentHour = new Date().getHours();
     const dayTime = currentHour > 5 && currentHour < 19 ? true : false;
+    console.log(currentHour);
+    console.log(dayTime);
 
     switch (weatherDescription) {
       case "cielo sereno":
