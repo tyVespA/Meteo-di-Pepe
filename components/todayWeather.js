@@ -26,6 +26,8 @@ export default function TodayWeather({
         width={250}
         height={250}
         alt="weather image"
+        priority={true}
+        loading="eager"
         style={{ marginInline: "auto", marginBlock: "5px" }}
       />
       <p className={s.weatherDescription}>{weatherDescription}</p>
