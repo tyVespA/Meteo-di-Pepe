@@ -4,3 +4,10 @@
   font-family: "SF Pro Text";
   font-weight: 300;
 }
+
+.forecast {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}

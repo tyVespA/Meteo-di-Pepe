@@ -52,6 +52,10 @@ export default function Main() {
     const time = data.list[0].dt;
     const tempNow = data.list[0].main.temp;
     const tempDay1 = data.list[8].main.temp;
+    const tempDay2 = data.list[16].main.temp;
+    const tempDay3 = data.list[24].main.temp;
+    const tempDay4 = data.list[32].main.temp;
+    const tempDay5 = data.list[39].main.temp;
     const weatherDescription = data.list[0].weather[0].description;
     console.log(weatherDescription);
     const humidity = data.list[0].main.humidity;
@@ -63,6 +67,10 @@ export default function Main() {
       name,
       tempNow,
       tempDay1,
+      tempDay2,
+      tempDay3,
+      tempDay4,
+      tempDay5,
       time,
       weatherDescription,
       humidity,
@@ -122,6 +130,10 @@ export default function Main() {
   const location = weatherData.name;
   const tempNow = removeDecimal(weatherData.tempNow);
   const tempDay1 = removeDecimal(weatherData.tempDay1);
+  const tempDay2 = removeDecimal(weatherData.tempDay2);
+  const tempDay3 = removeDecimal(weatherData.tempDay3);
+  const tempDay4 = removeDecimal(weatherData.tempDay4);
+  const tempDay5 = removeDecimal(weatherData.tempDay5);
   const weatherDescription = weatherData.weatherDescription;
   const weatherDescriptionCapitalized =
     weatherDescription.charAt(0).toUpperCase() + weatherDescription.slice(1);
@@ -149,7 +161,13 @@ export default function Main() {
         pressure={pressure}
         windSpeed={windSpeed}
       />
-      <FutureDayWeather day="Domani" image={image} temp={tempDay1} />
+      <div className={s.forecast}>
+        <FutureDayWeather day="Domani" image={image} temp={tempDay1} />
+        <FutureDayWeather day="Dopodomani" image={image} temp={tempDay2} />
+        <FutureDayWeather day="Tra 3 giorni" image={image} temp={tempDay3} />
+        <FutureDayWeather day="Tra 4 giorni" image={image} temp={tempDay4} />
+        <FutureDayWeather day="Tra 5 giorni" image={image} temp={tempDay5} />
+      </div>
 
       {/* <p>City: {weatherData.name}</p> */}
       {/* <p>Time: {currentTime()}</p> */}
