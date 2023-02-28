@@ -4,6 +4,7 @@ import Image from "next/image";
 import CityNameInput from "@/components/cityNameInput";
 import TodayWeather from "./todayWeather";
 import s from "../styles/main.module.css";
+import FutureDayWeather from "./futureDayWeather";
 
 import { textAlign } from "@mui/system";
 
@@ -13,6 +14,11 @@ export default function Main() {
     const gmtTime = new Date(unixTime * 1000);
     const hour = gmtTime.getHours();
     return hour;
+  }
+
+  // removes one decimal number to temp
+  function removeDecimal(temp) {
+    return Math.round(temp * 10) / 10;
   }
 
   //returns current time
@@ -27,6 +33,7 @@ export default function Main() {
   const [cityName, setCityName] = useState("Milan");
   const [backGroundColor, setBackGroundColor] = useState("");
   const [image, setImage] = useState("");
+  const [icon, setIcon] = useState("");
 
   function handleCityNameChange(newCityName) {
     setCityName(newCityName);
@@ -44,6 +51,7 @@ export default function Main() {
     const name = data.city.name;
     const time = data.list[0].dt;
     const tempNow = data.list[0].main.temp;
+    const tempDay1 = data.list[8].main.temp;
     const weatherDescription = data.list[0].weather[0].description;
     console.log(weatherDescription);
     const humidity = data.list[0].main.humidity;
@@ -54,6 +62,7 @@ export default function Main() {
     setWeatherData({
       name,
       tempNow,
+      tempDay1,
       time,
       weatherDescription,
       humidity,
@@ -104,14 +113,15 @@ export default function Main() {
     } else {
       setBackGroundColor(nightBackground);
     }
-  }, [cityName]);
+  }, []);
 
   if (!weatherData) {
     return <div>Loading...</div>;
   }
 
   const location = weatherData.name;
-  const tempNow = Math.round(weatherData.tempNow * 10) / 10;
+  const tempNow = removeDecimal(weatherData.tempNow);
+  const tempDay1 = removeDecimal(weatherData.tempDay1);
   const weatherDescription = weatherData.weatherDescription;
   const weatherDescriptionCapitalized =
     weatherDescription.charAt(0).toUpperCase() + weatherDescription.slice(1);
@@ -139,6 +149,7 @@ export default function Main() {
         pressure={pressure}
         windSpeed={windSpeed}
       />
+      <FutureDayWeather day="Domani" image={image} temp={tempDay1} />
 
       {/* <p>City: {weatherData.name}</p> */}
       {/* <p>Time: {currentTime()}</p> */}
