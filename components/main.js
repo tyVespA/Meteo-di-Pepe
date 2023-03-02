@@ -33,7 +33,11 @@ export default function Main() {
   const [cityName, setCityName] = useState("Milan");
   const [backGroundColor, setBackGroundColor] = useState("");
   const [image, setImage] = useState("");
-  const [icon, setIcon] = useState("");
+  const [imageDay2, setImageDay2] = useState("");
+  const [imageDay3, setImageDay3] = useState("");
+  const [imageDay4, setImageDay4] = useState("");
+  const [imageDay5, setImageDay5] = useState("");
+  const [imageDay6, setImageDay6] = useState("");
 
   function handleCityNameChange(newCityName) {
     setCityName(newCityName);
@@ -57,7 +61,14 @@ export default function Main() {
     const tempDay4 = data.list[32].main.temp;
     const tempDay5 = data.list[39].main.temp;
     const weatherDescription = data.list[0].weather[0].description;
+    const weatherDescription2 = data.list[8].weather[0].description;
+    const weatherDescription3 = data.list[16].weather[0].description;
+    const weatherDescription4 = data.list[24].weather[0].description;
+    const weatherDescription5 = data.list[32].weather[0].description;
+    const weatherDescription6 = data.list[39].weather[0].description;
     console.log(weatherDescription);
+    console.log(weatherDescription2);
+
     const humidity = data.list[0].main.humidity;
     const pressure = data.list[0].main.pressure;
     const windSpeed = data.list[0].wind.speed;
@@ -73,6 +84,11 @@ export default function Main() {
       tempDay5,
       time,
       weatherDescription,
+      weatherDescription2,
+      weatherDescription3,
+      weatherDescription4,
+      weatherDescription5,
+      weatherDescription6,
       humidity,
       pressure,
       windSpeed,
@@ -107,6 +123,131 @@ export default function Main() {
       default:
         setImage("DaySun");
     }
+
+    switch (weatherDescription2) {
+      case "cielo sereno":
+        dayTime ? setImageDay2("DaySun") : setImageDay2("NightMoon");
+        break;
+      case "nubi sparse":
+      case "poche nuvole":
+      case "cielo coperto":
+      case "nebbia":
+        dayTime ? setImageDay2("DayClouds") : setImageDay2("NightClouds");
+        break;
+      case "pioggia":
+      case "pioggia moderata":
+      case "pioggia leggera":
+        dayTime ? setImageDay2("DayRain") : setImageDay2("NightRain");
+        break;
+      case "neve":
+        dayTime ? setImageDay2("DaySnow") : setImageDay2("NightSnow");
+        break;
+      case "tempesta":
+        dayTime ? setImageDay2("DayStorm") : setImageDay2("NightStorm");
+        break;
+      default:
+        setImageDay2("DaySun");
+    }
+
+    switch (weatherDescription3) {
+      case "cielo sereno":
+        dayTime ? setImageDay3("DaySun") : setImageDay3("NightMoon");
+        break;
+      case "nubi sparse":
+      case "poche nuvole":
+      case "cielo coperto":
+      case "nebbia":
+        dayTime ? setImageDay3("DayClouds") : setImageDay3("NightClouds");
+        break;
+      case "pioggia":
+      case "pioggia moderata":
+      case "pioggia leggera":
+        dayTime ? setImageDay3("DayRain") : setImageDay3("NightRain");
+        break;
+      case "neve":
+        dayTime ? setImageDay3("DaySnow") : setImageDay3("NightSnow");
+        break;
+      case "tempesta":
+        dayTime ? setImageDay3("DayStorm") : setImageDay3("NightStorm");
+        break;
+      default:
+        setImageDay3("DaySun");
+    }
+
+    switch (weatherDescription4) {
+      case "cielo sereno":
+        dayTime ? setImageDay4("DaySun") : setImageDay4("NightMoon");
+        break;
+      case "nubi sparse":
+      case "poche nuvole":
+      case "cielo coperto":
+      case "nebbia":
+        dayTime ? setImageDay4("DayClouds") : setImageDay4("NightClouds");
+        break;
+      case "pioggia":
+      case "pioggia moderata":
+      case "pioggia leggera":
+        dayTime ? setImageDay4("DayRain") : setImageDay4("NightRain");
+        break;
+      case "neve":
+        dayTime ? setImageDay4("DaySnow") : setImageDay4("NightSnow");
+        break;
+      case "tempesta":
+        dayTime ? setImageDay4("DayStorm") : setImageDay4("NightStorm");
+        break;
+      default:
+        setImageDay4("DaySun");
+    }
+
+    switch (weatherDescription5) {
+      case "cielo sereno":
+        dayTime ? setImageDay5("DaySun") : setImageDay5("NightMoon");
+        break;
+      case "nubi sparse":
+      case "poche nuvole":
+      case "cielo coperto":
+      case "nebbia":
+        dayTime ? setImageDay5("DayClouds") : setImageDay5("NightClouds");
+        break;
+      case "pioggia":
+      case "pioggia moderata":
+      case "pioggia leggera":
+        dayTime ? setImageDay5("DayRain") : setImageDay5("NightRain");
+        break;
+      case "neve":
+        dayTime ? setImageDay5("DaySnow") : setImageDay5("NightSnow");
+        break;
+      case "tempesta":
+        dayTime ? setImageDay5("DayStorm") : setImageDay5("NightStorm");
+        break;
+      default:
+        setImageDay5("DaySun");
+    }
+
+    switch (weatherDescription6) {
+      case "cielo sereno":
+        dayTime ? setImageDay6("DaySun") : setImageDay6("NightMoon");
+        break;
+      case "nubi sparse":
+      case "poche nuvole":
+      case "cielo coperto":
+      case "nebbia":
+        dayTime ? setImageDay6("DayClouds") : setImageDay6("NightClouds");
+        break;
+      case "pioggia":
+      case "pioggia moderata":
+      case "pioggia leggera":
+        dayTime ? setImageDay6("DayRain") : setImageDay6("NightRain");
+        break;
+      case "neve":
+        dayTime ? setImageDay6("DaySnow") : setImageDay6("NightSnow");
+        break;
+      case "tempesta":
+        dayTime ? setImageDay6("DayStorm") : setImageDay6("NightStorm");
+        break;
+      default:
+        setImageDay6("DaySun");
+    }
   }
 
   const currentHour = new Date().getHours();
@@ -121,7 +262,7 @@ export default function Main() {
     } else {
       setBackGroundColor(nightBackground);
     }
-  }, []);
+  }, [cityName]);
 
   if (!weatherData) {
     return <div>Loading...</div>;
@@ -162,11 +303,23 @@ export default function Main() {
         windSpeed={windSpeed}
       />
       <div className={s.forecast}>
-        <FutureDayWeather day="Domani" image={image} temp={tempDay1} />
-        <FutureDayWeather day="Dopodomani" image={image} temp={tempDay2} />
-        <FutureDayWeather day="Tra 3 giorni" image={image} temp={tempDay3} />
-        <FutureDayWeather day="Tra 4 giorni" image={image} temp={tempDay4} />
-        <FutureDayWeather day="Tra 5 giorni" image={image} temp={tempDay5} />
+        <FutureDayWeather day="Domani" image={imageDay2} temp={tempDay1} />
+        <FutureDayWeather day="Dopodomani" image={imageDay3} temp={tempDay2} />
+        <FutureDayWeather
+          day="Tra 3 giorni"
+          image={imageDay4}
+          temp={tempDay3}
+        />
+        <FutureDayWeather
+          day="Tra 4 giorni"
+          image={imageDay5}
+          temp={tempDay4}
+        />
+        <FutureDayWeather
+          day="Tra 5 giorni"
+          image={imageDay6}
+          temp={tempDay5}
+        />
       </div>
 
       {/* <p>City: {weatherData.name}</p> */}

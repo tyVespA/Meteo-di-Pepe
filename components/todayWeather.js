@@ -28,7 +28,11 @@ export default function TodayWeather({
         alt="weather image"
         priority={true}
         loading="eager"
-        style={{ marginInline: "auto", marginBlock: "5px" }}
+        style={{
+          marginInline: "auto",
+          marginBlock: "5px",
+          filter: "drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5))",
+        }}
       />
       <p className={s.weatherDescription}>{weatherDescription}</p>
       <div className={s.stats}>

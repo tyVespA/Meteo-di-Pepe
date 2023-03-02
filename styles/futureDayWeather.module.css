@@ -1,0 +1,13 @@
+.futureDayWeather {
+  padding: 10px 15px;
+  border: 2px solid white;
+  border-radius: 15px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  min-width: 150px;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.futureDayWeather h3 {
+  font-weight: 300;
+  font-size: 1rem;
+}
