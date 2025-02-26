@@ -321,10 +321,6 @@ export default function Main() {
           temp={tempDay5}
         />
       </div>
-
-      {/* <p>City: {weatherData.name}</p> */}
-      {/* <p>Time: {currentTime()}</p> */}
-      {/* <p>Temp: {Math.round(weatherData.tempNow)}</p> */}
     </div>
   );
 }
