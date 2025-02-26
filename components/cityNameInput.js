@@ -16,14 +16,14 @@ export default function CityNameInput({ onCityNameChange }) {
       );
       const data = await response.json();
       if (data.cod === "404") {
-        setErrorMessage(`No weather data found for city "${inputValue}"`);
+        setErrorMessage(`Nessun risultato trovato per: "${inputValue}"`);
       } else {
         onCityNameChange(inputValue);
         setErrorMessage("");
       }
     } catch (error) {
       console.error(error);
-      setErrorMessage(`Error fetching weather data for city "${inputValue}"`);
+      setErrorMessage(`Errore nel ricercare data per: "${inputValue}"`);
     }
   }
 
