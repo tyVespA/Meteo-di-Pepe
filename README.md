@@ -22,7 +22,8 @@ Un'app web interattiva che mostra le condizioni meteo attuali e la previsione pe
 
 ## 📸 Screenshot
 
-![Anteprima dell'app]([https://via.placeholder.com/800x400.png?text=Screenshot+del+progetto](https://www.marcomigliavacca.it/_next/image?url=%2Fimages%2FprojectsImages%2FmeteoThumbnail.jpg&w=640&q=75))
+![Anteprima dell'app](https://www.marcomigliavacca.it/_next/image?url=%2Fimages%2FprojectsImages%2FmeteoThumbnail.jpg&w=640&q=75)
+
 
 ## 🔧 Installazione Locale
 
