@@ -34,4 +34,4 @@ npm install
 npm run dev
 ```
 
-Aprire http://localhost:3000 con il browser per vedere il risultato.
+L'app sarà disponibile su http://localhost:3000.
