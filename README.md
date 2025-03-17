@@ -8,9 +8,9 @@ Un'app web interattiva che mostra le condizioni meteo attuali e la previsione pe
 
 ## 🛠 Tecnologie Utilizzate
 
-- ⚛️ [React](https://react.dev/)
-- 🌦️ [OpenWeather API](https://openweathermap.org/api) per i dati meteo
-- 🎨 [CSS Modules](https://github.com/css-modules/css-modules) per gli stili
+- [React](https://react.dev/)
+- [OpenWeather API](https://openweathermap.org/api) per i dati meteo
+- [CSS Modules](https://github.com/css-modules/css-modules) per gli stili
 
 ## ✨ Funzionalità
 
